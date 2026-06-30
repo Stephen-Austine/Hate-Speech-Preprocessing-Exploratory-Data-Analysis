@@ -938,8 +938,8 @@ To contribute:
 ## License & Citation
 
 **Project:** Hate Speech Preprocessing & EDA  
-**Author:** [Your Name]  
-**Year:** 2024  
+**Author:** Stephen Austine  
+**Year:** 2026  
 **Dataset:** Twitter data from 2017 Kenyan general election  
 
 ### Citation
@@ -949,8 +949,8 @@ If you use this project, please cite:
 ```bibtex
 @repository{hate_speech_preprocessing_2024,
   title={Hate Speech Preprocessing & Exploratory Data Analysis},
-  author={Your Name},
-  year={2024},
+  author=Stephen Austine,
+  year=2026,
   url={https://github.com/your-repo/nlp-hate-speech-analysis}
 }
 ```
@@ -982,7 +982,7 @@ If you have been granted permission to access this project:
 
 To request access to this project or its datasets, please contact:
 
-- **Email:** [Your Email Address]
+- **Email:** 
 - **Subject Line:** "Data Access Request — Hate Speech Preprocessing Project"
 
 All access requests must include:
@@ -1035,7 +1035,7 @@ Use `cleaned_tweet` for exploration; use `stemmed_tweet` for ML pipelines.
 For questions, issues, or feedback:
 
 - **GitHub Issues:** [Create an issue](https://github.com/your-repo/issues)
-- **Email:** your.email@example.com
+- **Email:**
 - **Discussions:** [GitHub Discussions](https://github.com/your-repo/discussions)
 
 ---
