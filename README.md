@@ -411,10 +411,10 @@ The system routes each word through **three tiers in order**, processing only wh
         │ Algorithm: O(1) dict lookup               │
         │ Speed: Instant                            │
         │                                           │
-        │ "uhuru" in MANUAL_CORRECTIONS? No ──────┐ │
-        │ "thats" → "that" ✓                      │ │
-        │ "tribalist" → "tribalism" ✓             │ │
-        └───────────────────────────────────────────┘│
+        │ "uhuru" in MANUAL_CORRECTIONS? No ────────│─┐ 
+        │ "thats" → "that" ✓                        │ │
+        │ "tribalist" → "tribalism" ✓               │ │
+        └───────────────────────────────────────────┘ │
                                                       ↓
         ┌───────────────────────────────────────────┐
         │ TIER 2: DOMAIN KEEP (554 entries)         │
@@ -564,38 +564,38 @@ Total disk I/O: Negligible (< 0.5 seconds cumulative)
 ┌──────────────────────────────────────────────────────────┐
 │              FIRST RUN (no checkpoint exists)            │
 ├──────────────────────────────────────────────────────────┤
-│  Cell 5 checks: os.path.exists("hs_checkpoint.csv")?    │
-│  Result: File not found                                 │
-│  Action: Print "No checkpoint file yet"                 │
-│  Cell 7 starts at row 0                                 │
+│  Cell 5 checks: os.path.exists("hs_checkpoint.csv")?     │
+│  Result: File not found                                  │
+│  Action: Print "No checkpoint file yet"                  │
+│  Cell 7 starts at row 0                                  │
 └──────────────────────────────────────────────────────────┘
                           ↓
 ┌──────────────────────────────────────────────────────────┐
 │       CELL 7 RUNNING: Main processing loop               │
 ├──────────────────────────────────────────────────────────┤
-│  Process rows 0 → 9,999                                 │
-│  After 10,000 rows: save_checkpoint(df, path)           │
-│  Process rows 10,000 → 19,999                           │
-│  After 20,000 rows: save_checkpoint(df, path) again     │
-│  ...                                                    │
-│  (Kernel crashes at row 142,857 — CTRL+C or timeout)   │
-│  ✓ hs_checkpoint.csv saved with rows 0 → 140,000      │
-│  ✗ Rows 140,001 → 154,742 not yet processed            │
+│  Process rows 0 → 9,999                                  │
+│  After 10,000 rows: save_checkpoint(df, path)            │
+│  Process rows 10,000 → 19,999                            │
+│  After 20,000 rows: save_checkpoint(df, path) again      │
+│  ...                                                     │
+│  (Kernel crashes at row 142,857 — CTRL+C or timeout)     │
+│  ✓ hs_checkpoint.csv saved with rows 0 → 140,000         │
+│  ✗ Rows 140,001 → 154,742 not yet processed              │
 └──────────────────────────────────────────────────────────┘
                           ↓
 ┌──────────────────────────────────────────────────────────┐
 │           RESTART: User re-runs notebook                 │
 ├──────────────────────────────────────────────────────────┤
-│  Cell 5 checks: os.path.exists("hs_checkpoint.csv")?    │
-│  Result: File found ✓                                   │
-│  Action: df_loaded, resume_idx = load_checkpoint(path) │
-│  Cell 5 prints:                                         │
-│    "Existing checkpoint found — 140,000 rows already    │
-│     processed."                                         │
-│  Cell 7 skips rows 0 → 139,999                         │
-│  Cell 7 resumes at row 140,000                         │
-│  Process rows 140,000 → 154,742 (~2.5 seconds)        │
-│  ✓ All rows now have cleaned_tweet & stemmed_tweet    │
+│  Cell 5 checks: os.path.exists("hs_checkpoint.csv")?     │
+│  Result: File found ✓                                    │
+│  Action: df_loaded, resume_idx = load_checkpoint(path)   │
+│  Cell 5 prints:                                          │
+│    "Existing checkpoint found — 140,000 rows already     │
+│     processed."                                          │
+│  Cell 7 skips rows 0 → 139,999                           │
+│  Cell 7 resumes at row 140,000                           │
+│  Process rows 140,000 → 154,742 (~2.5 seconds)           │
+│  ✓ All rows now have cleaned_tweet & stemmed_tweet       │
 └──────────────────────────────────────────────────────────┘
 ```
 
