@@ -412,22 +412,22 @@ The system routes each word through **three tiers in order**, processing only wh
         │ Speed: Instant                            │
         │                                           │
         │ "uhuru" in MANUAL_CORRECTIONS? No ──────┐ │
-        │ "thats" → "that" ✓                       │ │
+        │ "thats" → "that" ✓                      │ │
         │ "tribalist" → "tribalism" ✓             │ │
-        └───────────────────────────────────────────┘ │
+        └───────────────────────────────────────────┘│
                                                       ↓
         ┌───────────────────────────────────────────┐
         │ TIER 2: DOMAIN KEEP (554 entries)         │
         │ Algorithm: O(1) set lookup                │
         │ Speed: Instant                            │
         │                                           │
-        │ "uhuru" in DOMAIN_KEEP? Yes ✓            │
-        │ Keep as "uhuru" (don't auto-correct)     │
+        │ "uhuru" in DOMAIN_KEEP? Yes ✓             │
+        │ Keep as "uhuru" (don't auto-correct)      │
         │                                           │
         │ Protected words:                          │
-        │ - Political: uhuru, raila, ruto, nasa    │
-        │ - Swahili: hata, kila, nyinyi, asante   │
-        │ - Slang: kweli, kwa, kama               │
+        │ - Political: uhuru, raila, ruto, nasa     │
+        │ - Swahili: hata, kila, nyinyi, asante     │
+        │ - Slang: kweli, kwa, kama                 │
         └───────────────────────────────────────────┘
                                     ↓
         ┌───────────────────────────────────────────┐
