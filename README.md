@@ -125,28 +125,28 @@ Example:
 ├─────────────────────────────────────────────────────────────────────────┤
 │  1. Load OmbuiHSRaw.csv (semicolon-delimited)                           │
 │  2. Extract tweet text from compound field [index 4]                    │
-│  3. Drop empty/unparseable rows → 154,742 usable tweets               │
+│  3. Drop empty/unparseable rows → 154,742 usable tweets                 │
 │  4. Compute baseline EDA metrics (length, word count)                   │
 └─────────────────────────────────────────────────────────────────────────┘
                                     ↓
 ┌─────────────────────────────────────────────────────────────────────────┐
 │                      PREPROCESSING PHASE (8 steps)                      │
 ├─────────────────────────────────────────────────────────────────────────┤
-│  Step 1: Lowercase               "Hello @USER"  → "hello @user"        │
-│  Step 2: Remove URLs & HTML      "see https://" → "see"               │
-│  Step 3: Remove special chars    "#Hate! Done!" → "hate done"         │
-│  Step 4: Normalize whitespace    "hello  world" → "hello world"       │
-│  Step 5: 3-tier spell correction (see diagram below)                   │
-│  Step 6: Tokenization            "hello world"  → ["hello", "world"]  │
-│  Step 7: Remove stopwords        filters "the", "is", "at", ...       │
-│  Step 8a: Lemmatization          "running"      → "run"               │
-│  Step 8b: Stemming               "running"      → "run"               │
+│  Step 1: Lowercase               "Hello @USER"  → "hello @user"         │
+│  Step 2: Remove URLs & HTML      "see https://" → "see"                 │
+│  Step 3: Remove special chars    "#Hate! Done!" → "hate done"           │
+│  Step 4: Normalize whitespace    "hello  world" → "hello world"         │
+│  Step 5: 3-tier spell correction (see diagram below)                    │
+│  Step 6: Tokenization            "hello world"  → ["hello", "world"]    │
+│  Step 7: Remove stopwords        filters "the", "is", "at", ...         │
+│  Step 8a: Lemmatization          "running"      → "run"                 │
+│  Step 8b: Stemming               "running"      → "run"                 │
 └─────────────────────────────────────────────────────────────────────────┘
                                     ↓
 ┌─────────────────────────────────────────────────────────────────────────┐
 │                    CHECKPOINT & RESUMPTION SYSTEM                       │
 ├─────────────────────────────────────────────────────────────────────────┤
-│  Every 10,000 rows: Save progress to hs_checkpoint.csv                 │
+│  Every 10,000 rows: Save progress to hs_checkpoint.csv                  │
 │  On kernel restart: Scan checkpoint, resume from first unprocessed row  │
 │  Result: Fault-tolerant processing with no lost work                    │
 └─────────────────────────────────────────────────────────────────────────┘
@@ -154,11 +154,11 @@ Example:
 ┌─────────────────────────────────────────────────────────────────────────┐
 │                         OUTPUT GENERATION                               │
 ├─────────────────────────────────────────────────────────────────────────┤
-│  ✓ cleaned_tweet (lemmatized, human-readable)                          │
-│  ✓ stemmed_tweet (compact, ML-optimized)                               │
-│  ✓ Pre/post-cleaning distribution charts                               │
-│  ✓ Word frequency analysis                                             │
-│  ✓ WordCloud visualization                                             │
+│  ✓ cleaned_tweet (lemmatized, human-readable)                           │
+│  ✓ stemmed_tweet (compact, ML-optimized)                                │
+│  ✓ Pre/post-cleaning distribution charts                                │
+│  ✓ Word frequency analysis                                              │
+│  ✓ WordCloud visualization                                              │
 └─────────────────────────────────────────────────────────────────────────┘
 ```
 
